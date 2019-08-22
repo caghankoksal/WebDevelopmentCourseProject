@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href = 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="magnific-popup.css">
+    <script type="text/javascript" src="js/language.js"></script>
+    <style>
+        #TRBut{
+            margin-right: 5px;
+        }
+    </style>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#startupNavbar" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="#" class="navbar-brand"><img src="img/logo1.png" alt="startup.logo" height="26" id="logonav"></a>
+    <h6 id="projname">Web Development</h6>
+    <div class="collapse navbar-collapse " id="startupNavbar">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html" id="homeButton">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="album.html" id="albumButton">Album</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="form.html" id="formButton">Subscribe</a>
+            </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="TRBut">
+            <a onclick="changeTr()">TR</a>
+            </li>
+            <li id="ENGbut">
+            <a onclick="changeToEng()">ENG</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="stage">
+    <div id="stage-caption">
+        <h1 class="display-3" id="slogan">One album is better than two of something else</h1>
+        <p id="slogan2">I see your life in your Album</p>
+        <a href="form.html" class="btn btn-lg btn-success" id="takipteKal">Subscribe</a>
+    </div>
+</div>
+
+<body>
+
+    <section id="feature-one">
+        <div class="container">
+            <div class="feature-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/-2FKlfUyAQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <h6>Istanbul,Turkey</h6>
+                        <h2 id=c1header>The Center of the World</h2>
+                        <p class="lead" id="c1paragraph">If the Earth were a single state, Istanbul would be its capital-Napoleon Boneparte</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature-two" class="feature-dark">
+        <div class="container">
+            <div class="feature-content">
+                <div class="row" id="feature2_row">
+                    <div class="col-lg-6 feature-caption">
+                        <h6>Venezia,Italy</h6>
+                        <h2 id="c2head">Venezia hearth of the Italy</h2>
+                        <p class="lead" id="c2parapgrah">I will never forget experiencing Venice for the first time. It feels like you are transported to another time - the art, music, food and pure romance in the air is like no other place. Elizabeth Berkley</p>
+                        <a href="" role="button" class="btn btn-outline-secondary btn-lg">Get in on the action</a>
+                    </div>
+                    <div class="col-lg-6 text-sm-center hidden-md-down">
+                        <a href="img/venezia.jpg"><img src="img/venezia.jpg" alt="Venezia,Italy"></a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="feature-three">
+        <div class="container">
+            <div class="feature-content">
+                <div class="row">
+                    <div class="col-lg-6 hidden-md-down">
+                        <a href="img/arch-bridge-gablenz_germany.jpg"><img src="img/arch-bridge-gablenz_germany.jpg" alt="Gablenz,Germany"></a>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <h2>Gablenz,Germany</h2>
+                        <p class="lead" id="c3paragraph">Commissioned in 1860 by the knight of the local town, the thin arch stretching over the waters of the Rakotzsee is roughly built out of varied local stone. Like many similarly precarious spans across Europe, the Rakotzbrücke is known as a “devil’s bridge,” due to the colloquialism that such bridges were so dangerous or miraculous that they must have been built by Satan. </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature-four" class="feature-alt">
+        <div class="container">
+            <div class="feature-content" id="featurefourcontent">
+                <div class="row" id="feature4_row">
+                    <div class="col-lg-6" id="deneme">
+                        <h6>Moon</h6>
+                        <blackquote class="Blockquote" id="c4head">
+                            &ldquo;That's one small step for man, one giant leap for mankind&rdquo;
+                            <footer class="blockquote-footer" id="c4parahraph">
+                                Neil Armstrong <cite>First person to walk on the Moon</cite>
+                            </footer>
+                        </blackquote>
+                    </div>
+                    <div class="col-lg-6 hidden-md-down">
+                        <a href="img/night-landscape-15010066769pV.jpg"><img src="img/night-landscape-15010066769pV.jpg" alt="Moon picture"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature-five" class="feature-full">
+        <div class="container">
+            <div class="feature-content">
+                <div class="row" id="feature5_row">
+                    <div class="col-lg-l8 offset-lg-2">
+                        <h6>Chicago,USA</h6>
+                        <p class="lead" id="card5paragraph">Chicago, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, it has a skyline punctuated by skyscrapers such as the iconic John Hancock Center, 1,451-ft. Willis Tower (formerly the Sears Tower) and the neo-Gothic Tribune Tower. The city is also renowned for its museums, including the Art Institute of Chicago with its noted Impressionist and Post-Impressionist works. </p>
+                        <h6 id="card5head">Things to do in Chicago:</h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li>Chicago Architecture River Cruise</li>
+                                    <li>Millennium Park</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <ul>
+                                    <li>Navy Pier</li>
+                                    <li>Willis Tower</li>
+                                </ul>
+                            </div>
+                            <a href="img/chicago-skyline-at-night,Petr%20Kratochvil.jpg"><img src="img/chicago-skyline-at-night,Petr%20Kratochvil.jpg" alt="Chicago"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="feature-six" class="feature-dark">
+        <div class="container">
+            <div class="feature-content">
+                <div class="row" id="feauture6_row">
+                    <div class="col-lg-6 hidden-md-down">
+                        <a href="img/Deganwy,UK,Lisa%20Potios.jpg"> <img src="img/Deganwy,UK,Lisa%20Potios.jpg" alt="Deganwy,United Kingdom"></a>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <h6>Deganwy,UK</h6>
+                        <h2 id="card6head">Who does not like watching sunset?</h2>
+                        <p class="lead" id="card6paragraph">Deganwy is a small town in Conwy County Borough in Wales with a population of 3,936. It lies in the Creuddyn Peninsula alongside Llandudno and Rhos-on-Sea. Wikipedia</p>
+                        <a href="" role="button" class="btn btn-lg btn-success">Learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+
+    <footer id="footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>
+                        &copy;2019 caghankoksal
+
+                    </p>
+                    <p>Web Development Course Project <a href="github.com/caghankoksal">caghankoksal</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="list-unstyled">
+                        <li><a href="startup.html">Home</a></li>
+                        <li><a href="index.html">Album</a></li>
+                        <li><a href="form.html">Subscription</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col-sm-3">
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/xxride">Facebook</a></li>
+                        <li><a href="https://twitter.com/caghank">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCPYEa1CT_w5LEfmVPc0WbNw?view_as=subscriber">Youtube</a></li>
+                        <li><a href="https://www.linkedin.com/in/%C3%A7a%C4%9Fhan-k%C3%B6ksal-75648b104/">Linkedin</a></li>
+                    </ul>
+
+                </div>
+                <div class="col-sm-3">
+                    <h6>Album</h6>
+                    <p>Best Way To Storing Moments</p>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/magnific.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+/* style.css*/
+
+html,
+body {
+    height: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+
+#cover-caption {
+    width: 100%;
+}
+
+#deneme {
+    margin-left: 10rem; //rem RELATIVE TO ROOT html tag
+}
+
+.section-content {
+    padding: 5rem 0;
+}
+
+#about {
+    background: url("../img/chi-liu-1552956-unsplash.jpg") center center no-repeat;
+    background-size: cover;
+}
+
+.about-text {
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    padding: 30px;
+}
+
+#footer-main {
+    background: #222;
+    color: white;
+    font-size=0.8rem;
+    padding: 2.5rem 0;
+}
+
+#logonav {
+    width: 100px;
+    height: 50px;
+}

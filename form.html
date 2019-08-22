@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/form.css">
+
+
+
+    <link href="/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script type="text/javascript" src="js/comment.js"></script>
+     <script type="text/javascript" src="js/birthday.js"></script>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="js/language.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        #sortable {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 60%;
+        }
+
+        #sortable li {
+            margin: 0 3px 3px 3px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            font-size: 1em;
+        }
+
+        #sortable li span {
+            position: absolute;
+            margin-left: -1.3em;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            $("#sortable").sortable();
+            $("#sortable").disableSelection();
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("comments").mouseleave(function() {
+                alert("Are you sure dont want to leave comment?!");
+            });
+        });
+
+    </script>
+
+
+</head>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark inverse">
+    <a href="#" class="navbar-brand"><img src="img/logo1.png" alt="startup.logo" height="26" id="logonav"></a>
+    <h6 id="Formprojname">Web Development</h6>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+                <a class="nav-link" href="index.html" id="FormHome">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="album.html">Album</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#" id="FormKayit">Registration</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li id="TRbut"><a onclick="formChangeToTr()">TR</a></li>
+
+            <li id="ENGbut"><a onclick="formChangeToEng()">ENG</a></li>
+            <button type="button" class="btn btn-danger" id="logout" onclick="logout()">Logout</button>
+        </ul>
+
+    </div>
+</nav>
+<br>
+
+<body>
+
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '2082894542003998',
+                cookie: true,
+                xfbml: true,
+                version: 'v3.3'
+            });
+
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        };
+
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function statusChangeCallback(response) {
+            if (response.status === "connected") {
+                console.log("Logged in and authenticated");
+                setElements(true);
+                testAPI();
+            } else {
+                console.log("Not autheticated");
+                setElements(false);
+            }
+        }
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+                statusChangeCallback(response);
+            });
+        }
+/*
+        function testAPI() {
+            FB.api("/me?fields=name,email,birthday,location", function(response) {
+                if (response && !response.error) {
+                    console.log(response);
+                    document.getElementById("gender").value = response.gender;
+                    document.getElementById("email").value = response.email;
+                    document.getElementById("firstname").value = (response.name.split(" "))[0];
+                    document.getElementById("lastname").value = (response.name.split(" "))[response.name.split(" ").length - 1];
+
+                    var mont = response.birthday.split("/")[0];
+                    var day = response.birthday.split("/")[1];
+                    var year = response.birthday.split("/")[2];
+                    //var arr=birthday.split();
+
+                    var birthday = year + "-" + mont + "-" + day;
+                    document.getElementById("birthday").value = birthday;
+
+                }
+            })
+        }
+        */
+
+        function setElements(isLoggedIn) {
+            if (isLoggedIn) {
+                document.getElementById('fb-btn').style.display = "none";
+                document.getElementById('logout').style.display = "block";
+            } else {
+                document.getElementById('fb-btn').style.display = "block";
+                document.getElementById('logout').style.display = "none";
+            }
+        }
+
+        function logout() {
+            FB.logout(function(response) {
+                setElements(false);
+            });
+        }
+
+    </script>
+
+
+    <form action="" class="main-form needs-validation " id="mainForm" onsubmit="return commentThis()" novalidate>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="firstname" id="FormFirstName">Firstname</label>
+                    <input type="text" name="firstname" id="firstname" class="form-control" required>
+                    <small class="form-text text-muted" id="smallName">
+                        This should be your name
+                    </small>
+                    <div class="invalid-feedback" id="FormNameFeedback">You should feel this with your name!</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="lastname" id="FormLastname">Lastname</label>
+                    <input type="text" name="Lastname" id="lastname" class="form-control" required>
+                    <small class="form-text text-muted" id="smallLast">
+                        This should be your last name
+                    </small>
+                    <div class="invalid-feedback" id="FormSurNameFeedback">You should feel this with your surname!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="username" id="FormUsername">Username</label>
+                    <input type="text" name="username" id="username" class="form-control" required>
+                    <div class="invalid-feedback" id="FormUserNameFeedback">You should feel this with your username!</div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="birth" id="FormBirthday">Birthday:</label>
+                    <input type="date" placeholder="YYYY-MM-DD" id="birthday" name="birth" class="form-control" style="width:300px" max="2019-05-20" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="password" id="FormPassword">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" required>
+                    <div class="invalid-feedback" id="FormPasswordFeedback">Password can not be that easy and empty!</div>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="gender" id="gender">Gender</label>
+                    <select name="gender" id="gender" class="form-control">
+                        <option value="male" id="FormMaleOption">Male</option>
+                        <option value="female" id="FormFemaleOption">Female</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+            <label for="email" id="mailtitle">E-mail address:</label>
+            <input autocomplete="off" id="email"  type="email" class="form-control" name="email" placeholder="user@mail.com" data-error="Email address is invalid" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+            <div class="help-block with-errors"></div>
+        </div>
+
+
+        <div class="form-group">
+            <h5 id="Interest">What does interest you more? Can you sort it for better recommendation?</h5>
+            <ul id="sortable">
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Nature Photography</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Landscape Photography</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Architecture Photography</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Supercar Photography</li>
+                <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Historical Photography</li>
+            </ul>
+
+        </div>
+
+        <div class="form-group">
+            <label for="comments" id="Formcomments">Comments and other stuff you want to tell us:</label>
+            <textarea name="comments" id="comments" placeholder="Let us know what you think!" form="form1"></textarea>
+        </div>
+
+        <div class="form-check">
+            <input type="checkbox" id=accept-term class="form-check-input" required>
+            <label for="accept-terms" class="form-check-label" id="FormTerms">Accept-Terms &amp; Conditions</label>
+            <div class="invalid-feedback" id="FormCheckBox">
+                You must agree before submitting.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button type="submit " class="btn btn-primary btn-lg" id="submitBut">Submit </button>
+                </div>
+                <div class="col-sm-6">
+                    <div class="fb-login-button" id="fb-btn" scope="public_profile,email,user_location" data-width="" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true" onlogin="checkLoginState();"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </form>
+
+
+    <!-- jQuery first, then Bootstrap JS. -->
+
+    <script>
+        var form = document.querySelector('.needs-validation');
+        form.addEventListener('submit', function(event) {
+            if (form.checkValidity() == false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated')
+
+        })
+
+    </script>
+
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+
+<footer id="footer-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <p>
+                    &copy;2019 caghankoksal
+
+                </p>
+                <p>Web Development Course Project <a href="github.com/caghankoksal">caghankoksal</a></p>
+            </div>
+            <div class="col-sm-3">
+                <ul class="list-unstyled">
+                    <li><a href="startup.html">Home</a></li>
+                    <li><a href="index.html">Album</a></li>
+                    <li><a href="form.html">Subscription</a></li>
+                </ul>
+
+            </div>
+
+            <div class="col-sm-3">
+                <ul class="list-unstyled">
+                    <li><a href="https://www.facebook.com/xxride">Facebook</a></li>
+                    <li><a href="https://twitter.com/caghank">Twitter</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCPYEa1CT_w5LEfmVPc0WbNw?view_as=subscriber">Youtube</a></li>
+                    <li><a href="https://www.linkedin.com/in/%C3%A7a%C4%9Fhan-k%C3%B6ksal-75648b104/">Linkedin</a></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-3">
+                <h6>Album</h6>
+                <p>Best Way To Storing Moments</p>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
